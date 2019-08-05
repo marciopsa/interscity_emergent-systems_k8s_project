@@ -19,3 +19,9 @@ kubectl expose deployment docker-interscity-pal3 --type LoadBalancer --port 2020
 
 # Getting the Interscity-InteractiveAssembly App's external IP created by GKE
 kubectl get services
+
+# To create a HPA (Horizontal Pod Autoscaler) using default metrics (cpu use)
+kubectl autoscale deployment docker-interscity-pal4 --max 10 --min 1 --cpu-percent 50
+
+# To verify the working of HPA
+kubectl get hpa
